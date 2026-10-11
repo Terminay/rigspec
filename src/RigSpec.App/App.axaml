@@ -6,28 +6,28 @@
     <ResourceDictionary>
       <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Dark">
-          <SolidColorBrush x:Key="AppBackground" Color="#1E2024"/>
-          <SolidColorBrush x:Key="AppForeground" Color="#F4F5F7"/>
-          <SolidColorBrush x:Key="ToolbarBackground" Color="#25272B"/>
-          <SolidColorBrush x:Key="ToolbarBorder" Color="#3E424A"/>
-          <SolidColorBrush x:Key="SidebarBackground" Color="#1E2024"/>
-          <SolidColorBrush x:Key="SidebarBorder" Color="#3E424A"/>
-          <SolidColorBrush x:Key="ContentBackground" Color="#191B1F"/>
-          <SolidColorBrush x:Key="SurfaceBackground" Color="#25272B"/>
-          <SolidColorBrush x:Key="SurfaceBorder" Color="#3E424A"/>
-          <SolidColorBrush x:Key="SectionHeaderBackground" Color="#2C2F35"/>
-          <SolidColorBrush x:Key="StrongForeground" Color="#FFFFFF"/>
-          <SolidColorBrush x:Key="MutedForeground" Color="#9AA0A8"/>
-          <SolidColorBrush x:Key="SecondaryForeground" Color="#9AA0A8"/>
-          <SolidColorBrush x:Key="ButtonBackground" Color="#2A2D33"/>
-          <SolidColorBrush x:Key="ButtonForeground" Color="#FFFFFF"/>
-          <SolidColorBrush x:Key="ButtonHoverBackground" Color="#3A3D42"/>
-          <SolidColorBrush x:Key="ChartBackground" Color="#1E2024"/>
-          <SolidColorBrush x:Key="ChartBorder" Color="#3E424A"/>
-          <SolidColorBrush x:Key="ChartGrid" Color="#2C2F35"/>
-          <SolidColorBrush x:Key="IconForeground" Color="#F4F5F7"/>
-          <SolidColorBrush x:Key="AccentPrimary" Color="#F4F5F7"/>
-          <SolidColorBrush x:Key="AccentSecondary" Color="#9AA0A8"/>
+          <SolidColorBrush x:Key="AppBackground" Color="#171B20"/>
+          <SolidColorBrush x:Key="AppForeground" Color="#F3F6F8"/>
+          <SolidColorBrush x:Key="ToolbarBackground" Color="#1C2127"/>
+          <SolidColorBrush x:Key="ToolbarBorder" Color="#2E3A42"/>
+          <SolidColorBrush x:Key="SidebarBackground" Color="#171B20"/>
+          <SolidColorBrush x:Key="SidebarBorder" Color="#2E3A42"/>
+          <SolidColorBrush x:Key="ContentBackground" Color="#12171B"/>
+          <SolidColorBrush x:Key="SurfaceBackground" Color="#1E242B"/>
+          <SolidColorBrush x:Key="SurfaceBorder" Color="#2E3A42"/>
+          <SolidColorBrush x:Key="SectionHeaderBackground" Color="#202A33"/>
+          <SolidColorBrush x:Key="StrongForeground" Color="#F7FAFC"/>
+          <SolidColorBrush x:Key="MutedForeground" Color="#9AA7B4"/>
+          <SolidColorBrush x:Key="SecondaryForeground" Color="#A5B1BE"/>
+          <SolidColorBrush x:Key="ButtonBackground" Color="#232C35"/>
+          <SolidColorBrush x:Key="ButtonForeground" Color="#F3F6F8"/>
+          <SolidColorBrush x:Key="ButtonHoverBackground" Color="#2D3944"/>
+          <SolidColorBrush x:Key="ChartBackground" Color="#141A1E"/>
+          <SolidColorBrush x:Key="ChartBorder" Color="#2E3A42"/>
+          <SolidColorBrush x:Key="ChartGrid" Color="#22313A"/>
+          <SolidColorBrush x:Key="IconForeground" Color="#EDF3F8"/>
+          <SolidColorBrush x:Key="AccentPrimary" Color="#F3F6F8"/>
+          <SolidColorBrush x:Key="AccentSecondary" Color="#7F8FA0"/>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Light">
           <SolidColorBrush x:Key="AppBackground" Color="#F4F5F7"/>

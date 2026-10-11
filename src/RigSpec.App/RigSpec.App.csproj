@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Include="..\..\assets\rigspec-kit-png-app-icon-512.png" Link="Assets\rigspec-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.3.22" />

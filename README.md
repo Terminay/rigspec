@@ -23,11 +23,11 @@ rigspec is a C# / .NET / Avalonia desktop application. The GUI and CLI share the
 
 **Downloads**
 
-[![Windows x64](https://img.shields.io/badge/Windows_x64-nightly-6B7078?style=flat&logo=windows&logoColor=white&labelColor=3A3D42)](https://nightly.link/Terminay/rigspec/workflows/ci/main/rigspec-win-x64.zip)
+[![Windows x64](https://img.shields.io/badge/Windows_x64-nightly-6B7078?style=flat&logo=windows&logoColor=white&labelColor=3A3D42)](https://nightly.link/Terminay/rigspec/workflows/ci/main/rigspec-gui-win-x64.zip)
 
-[![Linux x64](https://img.shields.io/badge/Linux_x64-nightly-6B7078?style=flat&logo=linux&logoColor=white&labelColor=3A3D42)](https://nightly.link/Terminay/rigspec/workflows/ci/main/rigspec-linux-x64.zip)
+[![Linux x64](https://img.shields.io/badge/Linux_x64-nightly-6B7078?style=flat&logo=linux&logoColor=white&labelColor=3A3D42)](https://nightly.link/Terminay/rigspec/workflows/ci/main/rigspec-gui-linux-x64.zip)
 
-[![macOS x64](https://img.shields.io/badge/macOS_x64-nightly-6B7078?style=flat&logo=apple&logoColor=white&labelColor=3A3D42)](https://nightly.link/Terminay/rigspec/workflows/ci/main/rigspec-osx-x64.zip)
+[![macOS x64](https://img.shields.io/badge/macOS_x64-nightly-6B7078?style=flat&logo=apple&logoColor=white&labelColor=3A3D42)](https://nightly.link/Terminay/rigspec/workflows/ci/main/rigspec-gui-osx-x64.zip)
 
 ## What it reports
 
@@ -42,11 +42,13 @@ dotnet build RigSpec.slnx
 dotnet test RigSpec.slnx
 ```
 
-GUI:
+Run the GUI (requires the .NET 10 SDK):
 
 ```sh
 dotnet run --project src/RigSpec.App
 ```
+
+The startup splash remains visible while the initial hardware scan runs, then fades into the app.
 
 CLI (same data as the GUI):
 
@@ -56,16 +58,16 @@ dotnet run --project src/RigSpec.Cli -- --json
 dotnet run --project src/RigSpec.Cli -- --diagnostics
 ```
 
-Create self-contained builds:
+Create compact, framework-dependent single-file builds (the target machine must have the .NET 10 runtime installed):
 
 ```sh
-dotnet publish src/RigSpec.App/RigSpec.App.csproj -c Release -r win-x64 --self-contained true
-dotnet publish src/RigSpec.Cli/RigSpec.Cli.csproj -c Release -r linux-x64 --self-contained true
+dotnet publish src/RigSpec.App/RigSpec.App.csproj -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+dotnet publish src/RigSpec.Cli/RigSpec.Cli.csproj -c Release -r linux-x64 --self-contained false -p:PublishSingleFile=true
 ```
 
 ## Continuous integration
 
-GitHub Actions runs the build and test suite on Windows, macOS, and Linux for every push and pull request. After those checks pass, it publishes self-contained GUI and CLI builds for Windows x64, Linux x64, and macOS x64 as workflow-run artifacts.
+GitHub Actions runs the build and test suite on Windows, macOS, and Linux for every push and pull request. After those checks pass, it publishes compact, framework-dependent single-file GUI and CLI builds for Windows x64, Linux x64, and macOS x64 as separate workflow-run artifacts. These require the .NET 10 runtime on the machine running the app.
 
 To check the same steps locally, install the .NET 10 SDK and run:
 
@@ -75,7 +77,7 @@ dotnet build RigSpec.slnx -c Release --no-restore
 dotnet test RigSpec.slnx -c Release --no-build --verbosity normal
 ```
 
-To test the hosted workflow, push a branch and open a pull request, then check the **Actions** tab for the `ci` workflow. Once it succeeds, open the run to download its `rigspec-win-x64`, `rigspec-linux-x64`, and `rigspec-osx-x64` artifacts. These are temporary workflow artifacts, not committed binaries or a published GitHub Release.
+To test the hosted workflow, push a branch and open a pull request, then check the **Actions** tab for the `ci` workflow. Once it succeeds, open the run to download the separate `rigspec-gui-*` and `rigspec-cli-*` artifacts. These are temporary workflow artifacts, not committed binaries or a published GitHub Release.
 
 ## Architecture
 

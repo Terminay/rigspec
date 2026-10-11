@@ -43,10 +43,16 @@ jobs:
         with:
           dotnet-version: "10.0.x"
       - name: Publish GUI
-        run: dotnet publish src/RigSpec.App/RigSpec.App.csproj -c Release -r ${{ matrix.rid }} --self-contained true -o artifacts/gui-${{ matrix.rid }}
-      - name: Publish CLI
-        run: dotnet publish src/RigSpec.Cli/RigSpec.Cli.csproj -c Release -r ${{ matrix.rid }} --self-contained true -o artifacts/cli-${{ matrix.rid }}
+        run: dotnet publish src/RigSpec.App/RigSpec.App.csproj -c Release -r ${{ matrix.rid }} --self-contained false -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None -p:DebugSymbols=false -o artifacts/gui
       - uses: actions/upload-artifact@v4
         with:
-          name: rigspec-${{ matrix.rid }}
-          path: artifacts
+          name: rigspec-gui-${{ matrix.rid }}
+          path: artifacts/gui
+          if-no-files-found: error
+      - name: Publish CLI
+        run: dotnet publish src/RigSpec.Cli/RigSpec.Cli.csproj -c Release -r ${{ matrix.rid }} --self-contained false -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None -p:DebugSymbols=false -o artifacts/cli
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rigspec-cli-${{ matrix.rid }}
+          path: artifacts/cli
+          if-no-files-found: error

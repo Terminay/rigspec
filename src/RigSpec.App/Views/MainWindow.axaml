@@ -8,6 +8,7 @@
         Width="960" Height="660"
         MinWidth="720" MinHeight="480"
         FontSize="{Binding UiFontSize}">
+  <Grid>
   <DockPanel>
     <!-- Top Toolbar -->
     <Border DockPanel.Dock="Top" Background="{DynamicResource ToolbarBackground}" Padding="14,10" BorderBrush="{DynamicResource ToolbarBorder}" BorderThickness="0,0,0,1">
@@ -193,4 +194,59 @@
       </Panel>
     </ScrollViewer>
   </DockPanel>
+
+  <Border x:Name="SplashScreen" Background="#171B20">
+    <Grid ClipToBounds="True">
+      <Grid.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+          <GradientStop Color="#171B20" Offset="0"/>
+          <GradientStop Color="#1A1F26" Offset="0.7"/>
+          <GradientStop Color="#171B20" Offset="1"/>
+        </LinearGradientBrush>
+      </Grid.Background>
+
+      <Ellipse x:Name="PrimaryGlow" Width="540" Height="420"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               Opacity="0.08">
+        <Ellipse.Fill>
+          <RadialGradientBrush>
+            <GradientStop Color="#34485B" Offset="0"/>
+            <GradientStop Color="#34485B" Offset="0.16"/>
+            <GradientStop Color="#0034485B" Offset="1"/>
+          </RadialGradientBrush>
+        </Ellipse.Fill>
+      </Ellipse>
+      <Ellipse x:Name="SecondaryGlow" Width="520" Height="410"
+               HorizontalAlignment="Center" VerticalAlignment="Center"
+               Opacity="0.06">
+        <Ellipse.Fill>
+          <RadialGradientBrush>
+            <GradientStop Color="#536577" Offset="0"/>
+            <GradientStop Color="#536577" Offset="0.14"/>
+            <GradientStop Color="#00536577" Offset="1"/>
+          </RadialGradientBrush>
+        </Ellipse.Fill>
+      </Ellipse>
+
+      <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="18">
+        <Image Source="/Assets/rigspec-logo.png" Width="128" Height="128"
+               HorizontalAlignment="Center" Opacity="0.96"/>
+        <TextBlock Text="rigspec" FontSize="23" FontWeight="SemiBold"
+                   HorizontalAlignment="Center" Foreground="{DynamicResource StrongForeground}"/>
+        <Canvas Width="38" Height="38" HorizontalAlignment="Center">
+          <Ellipse x:Name="SpinnerDot1" Canvas.Left="19" Canvas.Top="1" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+          <Ellipse x:Name="SpinnerDot2" Canvas.Left="31" Canvas.Top="6" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+          <Ellipse x:Name="SpinnerDot3" Canvas.Left="35" Canvas.Top="18" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+          <Ellipse x:Name="SpinnerDot4" Canvas.Left="31" Canvas.Top="30" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+          <Ellipse x:Name="SpinnerDot5" Canvas.Left="19" Canvas.Top="35" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+          <Ellipse x:Name="SpinnerDot6" Canvas.Left="7" Canvas.Top="30" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+          <Ellipse x:Name="SpinnerDot7" Canvas.Left="3" Canvas.Top="18" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+          <Ellipse x:Name="SpinnerDot8" Canvas.Left="7" Canvas.Top="6" Width="4" Height="4" Fill="{DynamicResource StrongForeground}" Opacity="0.18"/>
+        </Canvas>
+        <TextBlock Text="{Binding StatusText}" FontSize="11" LetterSpacing="0.2"
+                   HorizontalAlignment="Center" Foreground="{DynamicResource SecondaryForeground}"/>
+      </StackPanel>
+    </Grid>
+  </Border>
+  </Grid>
 </Window>
